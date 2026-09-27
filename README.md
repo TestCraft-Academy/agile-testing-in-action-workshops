@@ -1,59 +1,55 @@
-# Agile Testing in Action — Workshop Demos
+# Agile Testing in Action — Free Workshop Demos
 
-> **One green acceptance check. Two costly defects. One release decision.**  
-> A free, ten-minute introduction to testing *with* an Agile team, not just after it.
+> **One passing example. Two hidden defects. Would you release?**
 
-Imagine you are testing a promotion at **SwiftCart**. The story says shoppers should get a discount when they enter a valid code. The happy path passes. Would you release it?
+Follow three short Python demos. A companion video will be published separately on the company YouTube channel and shared on social media. You will see why Agile testers ask questions early, explore risks beyond the happy path, and help the team make a release decision. **No AI model, web app, API key, or server is needed.**
 
-This small repository accompanies a short video walkthrough. It contains three repeatable demonstrations that show how a conversation about rules and risk can find what a green check misses. It is a **fictional, intentionally flawed teaching model**, not a real checkout service or a full training course.
+## What are you testing?
 
-## Start here
+[`demos/swiftcart.py`](demos/swiftcart.py) is a **fictional promotion calculator**—the system under test (SUT). It applies the `SAVE20` code to baskets. The three numbered scripts call it with different baskets and print what happened. The calculator contains deliberate defects for you to spot; it is not a production application.
 
-You need **Python 3.10+**; no packages, API keys, server, account, or internet connection are needed to run the demos. From the repository root:
+## Follow the three steps
+
+You need **Python 3.10+**. Open a terminal in this repository's folder (the one containing `README.md` and `demos/`). If you downloaded a ZIP, extract it first. Run each command separately:
+
+### 1. Check the business rule
 
 ```bash
 python3 demos/01_green_is_not_enough.py
+```
+
+The £50 basket gets £10 off. But what happens when the basket has £40 of regular items and a £10 gift card? **Ask:** should a gift card count towards the £50 minimum?
+
+### 2. Check a retry
+
+```bash
 python3 demos/02_retry_changes_the_risk.py
+```
+
+The same basket and code are submitted twice. **Ask:** should a second call increase the discount?
+
+### 3. Discuss the release
+
+```bash
 python3 demos/03_release_conversation.py
 ```
 
-On Windows, use `py -3` instead of `python3`. If you do not want to run code, read each script and its printed output in the video; the concepts do not require programming experience.
+Compare the passing example with the two risky ones. **Ask:** what evidence, impact, and fix would you share with the team before release?
 
-| Demo | What you will see | Agile testing move |
-|---|---|---|
-| [01 — Green is not enough](demos/01_green_is_not_enough.py) | An acceptance check passes, but a gift-card basket gets a discount it should not receive | Ask for concrete examples during refinement |
-| [02 — Retry changes the risk](demos/02_retry_changes_the_risk.py) | The same request applies a discount twice | Explore realistic failure paths, not only the happy path |
-| [03 — Release conversation](demos/03_release_conversation.py) | A passing happy path alongside two business-critical risks | Explain evidence, impact, and conditions to the whole team |
+On Windows, replace `python3` with `py -3` in all commands. No packages or accounts are required. The scripts **print the expected defects** rather than crashing; each starts with fresh in-memory data.
 
-All runs are deterministic and reset their own in-memory state. They do not call a real API or spend money.
+## What did you learn?
 
-## What you gain for free
+- **Shift left:** agree on examples like the gift-card rule *before* code is finished, when changes are cheaper.
+- **Test by risk:** a valid code is not enough; eligibility and repeated requests can affect customers and revenue.
+- **Own quality together:** share evidence and options; release is a team decision, not just a green-test count.
 
-- A concrete example of **shift-left thinking**: clarify eligibility before building more tests.
-- A way to prioritise **risk-based checks**: gift-card eligibility and retries matter more than adding another happy-path assertion.
-- A model for communicating a **release recommendation** without pretending QA alone owns the decision.
-- Three runnable demos you can replay or discuss with your team.
+Optional: run `python3 -m unittest discover -s tests -v` (`py -3` on Windows). These tests **confirm the deliberately broken demos remain reproducible**. A green result does **not** mean SwiftCart is correct or safe to release.
 
-> **Want to practise rather than just watch?** The separate, free **[Agile Testing in Action Mini Lab](https://github.com/TestCraft-Academy/agile-testing-in-action-lab)** is a 30–45 minute exercise with a sprint brief, three missions, a reusable quality canvas, and sample answers. This repository is the short video companion; the lab is the hands-on follow-up. **Before sharing the video, confirm the lab link is publicly accessible** (it currently returns 404).
+## Keep practising
 
-## Go further with TestCraft Academy
+Want to try the decisions yourself? Work through the separate, free [Agile Testing in Action Mini Lab](https://github.com/TestCraft-Academy/agile-testing-in-action-lab) (30–45 minutes).
 
-The [**Agile Testing in Action** course](https://www.testcraftacademy.com/service-page/agile-testing-in-action-course) goes deeper into shift-left testing, Agile collaboration, sustainable automation, CI/CD, risk-based testing, and AI-augmented testing. It is distinct from these free demos and the free mini lab.
+For deeper guided practice, explore TestCraft Academy's [Agile Testing in Action course](https://www.testcraftacademy.com/service-page/agile-testing-in-action-course) or [register your interest](https://www.testcraftacademy.com/take-a-course-form).
 
-[**Register your interest for course details and upcoming dates →**](https://www.testcraftacademy.com/take-a-course-form)
-
-## For video hosts
-
-Use the [10-minute walkthrough guide](VIDEO_GUIDE.md) to plan a human-recorded video. It gives timings, commands, and the transition from this repository to the free lab and course. No video is hosted or generated here.
-
-## Verify the demos
-
-```bash
-python3 -m unittest discover -s tests -v
-```
-
-Tests confirm the **documented observations of the intentionally broken model**; a passing suite does **not** mean the promotion behaviour is safe to ship.
-
-## Licence
-
-The code and documentation are available under the [MIT Licence](LICENSE). Contributions and corrections are welcome via a GitHub issue or pull request.
+The materials are available under the [MIT Licence](LICENSE).

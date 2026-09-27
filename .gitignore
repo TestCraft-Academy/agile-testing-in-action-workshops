@@ -1,0 +1,13 @@
+# Local trainer materials (not for the public repository)
+/TRAINER_NOTES.md
+/VIDEO_GUIDE.md
+
+# Generated Python files
+__pycache__/
+*.py[cod]
+
+# Local environment / editor files
+.venv/
+.DS_Store
+.idea/
+.vscode/
