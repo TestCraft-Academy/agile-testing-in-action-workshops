@@ -2,7 +2,7 @@
 
 > **One passing example. Two hidden defects. Would you release?**
 
-Follow three short Python demos. A companion video will be published separately on the company YouTube channel and shared on social media. You will see why Agile testers ask questions early, explore risks beyond the happy path, and help the team make a release decision. **No AI model, web app, API key, or server is needed.**
+Follow three short Python demos alongside the companion video from TestCraft Academy. You will see why Agile testers ask questions early, explore risks beyond the happy path, and help the team make a release decision. **No AI model, web app, API key, or server is needed.**
 
 ## What are you testing?
 
@@ -64,6 +64,8 @@ flowchart LR
 ```
 
 ## Keep practising
+
+Watch the [companion video for these workshop demos](https://youtu.be/2ZGbiapzLWQ?si=IfntjVhDlz27mqxE), and explore more practical testing content on the [TestCraft Academy YouTube channel](https://www.youtube.com/@LearnTestCraft/).
 
 Want to try the decisions yourself? Work through the separate, free [Agile Testing in Action Mini Lab](https://github.com/TestCraft-Academy/agile-testing-in-action-lab) (30–45 minutes) at your own pace. To join a **free, facilitated mini lab**, [register your interest by email](mailto:info@testcraftacademy.com?subject=Free%20Agile%20Testing%20in%20Action%20Mini%20Lab%20interest). Dates and venue have not been confirmed yet; if your organisation could host the lab at its office, please mention that in your message.
 
